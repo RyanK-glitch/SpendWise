@@ -1,9 +1,7 @@
 # SpendWise
 
 A personal expense tracker for Android, written in Java.
-Originally written for **CN6008 Advanced Topics in Computer Science, Coursework Part 1**,
-and reused with permission as the software project for **CN6035 Mobile and Distributed
-Systems**, where it is the subject of Task C. The CN6035 report records that reuse.
+
 
 ---
 
