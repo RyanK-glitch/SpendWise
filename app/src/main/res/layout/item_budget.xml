@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- One budget card in the Budgets list. -->
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Widget.SpendWise.Card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/spacing_sm">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageCategoryIcon"
+            android:layout_width="@dimen/category_avatar"
+            android:layout_height="@dimen/category_avatar"
+            android:background="@drawable/bg_category_circle"
+            android:contentDescription="@null"
+            android:padding="@dimen/category_avatar_inset"
+            android:scaleType="fitCenter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/white"
+            tools:src="@drawable/ic_wallet" />
+
+        <TextView
+            android:id="@+id/textCategory"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_md"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.SpendWise.Title"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toTopOf="@id/textSpent"
+            app:layout_constraintEnd_toStartOf="@id/textPercent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@id/imageCategoryIcon"
+            app:layout_constraintTop_toTopOf="@id/imageCategoryIcon"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Groceries" />
+
+        <TextView
+            android:id="@+id/textSpent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xxs"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.SpendWise.Body"
+            app:layout_constraintBottom_toBottomOf="@id/imageCategoryIcon"
+            android:layout_marginEnd="@dimen/spacing_sm"
+        app:layout_constraintEnd_toStartOf="@id/textPercent"
+            app:layout_constraintStart_toStartOf="@id/textCategory"
+            app:layout_constraintTop_toBottomOf="@id/textCategory"
+            tools:text="LKR 287.40 of LKR 350.00" />
+
+        <TextView
+            android:id="@+id/textPercent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_sm"
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.SpendWise.Amount"
+            app:layout_constraintBaseline_toBaselineOf="@id/textCategory"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="82%"
+            tools:textColor="@color/status_warning" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrierHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="imageCategoryIcon,textSpent" />
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/progressBudget"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_md"
+            android:max="100"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/textCategory"
+            app:layout_constraintTop_toBottomOf="@id/barrierHeader"
+            app:trackCornerRadius="@dimen/corner_radius_pill"
+            app:trackThickness="@dimen/progress_track_height"
+            tools:progress="82" />
+
+        <TextView
+            android:id="@+id/textState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_md"
+            android:layout_marginEnd="@dimen/spacing_sm"
+            android:background="@drawable/bg_status_chip"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:paddingStart="@dimen/spacing_sm"
+            android:paddingTop="@dimen/spacing_xs"
+            android:paddingEnd="@dimen/spacing_sm"
+            android:paddingBottom="@dimen/spacing_xs"
+            android:textAppearance="@style/TextAppearance.SpendWise.Caption"
+            android:textStyle="bold"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintEnd_toStartOf="@id/textRemaining"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="@id/textCategory"
+            app:layout_constraintTop_toBottomOf="@id/progressBudget"
+            tools:text="Approaching limit"
+            tools:textColor="@color/status_warning" />
+
+        <TextView
+            android:id="@+id/textRemaining"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.SpendWise.Caption"
+            app:layout_constraintBaseline_toBaselineOf="@id/textState"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="LKR 62.60 left" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

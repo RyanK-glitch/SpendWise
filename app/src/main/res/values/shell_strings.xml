@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="shell_nav_home">Home</string>
+    <string name="shell_nav_activity">Activity</string>
+    <string name="shell_nav_budgets">Budgets</string>
+    <string name="shell_nav_reports">Reports</string>
+    <string name="shell_nav_profile">Profile</string>
+
+    <string name="shell_empty_recent_title">No transactions yet</string>
+    <string name="shell_empty_recent_body">Add your first one and it will show up here.</string>
+
+    <string name="shell_cd_see_all">See all transactions</string>
+</resources>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The five destinations of the bottom navigation bar. The ids here match the ids in bottom_nav_menu.xml, which is what lets the framework manage the back stack on its own. -->
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/dashboardFragment">
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.spendwise.ui.dashboard.DashboardFragment"
+        android:label="@string/nav_dashboard"
+        tools:layout="@layout/fragment_dashboard"
+        xmlns:tools="http://schemas.android.com/tools" />
+
+    <fragment
+        android:id="@+id/transactionsFragment"
+        android:name="com.spendwise.ui.transactions.TransactionsFragment"
+        android:label="@string/nav_transactions" />
+
+    <fragment
+        android:id="@+id/budgetsFragment"
+        android:name="com.spendwise.ui.budgets.BudgetsFragment"
+        android:label="@string/nav_budgets" />
+
+    <fragment
+        android:id="@+id/reportsFragment"
+        android:name="com.spendwise.ui.reports.ReportsFragment"
+        android:label="@string/nav_reports" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.spendwise.ui.profile.ProfileFragment"
+        android:label="@string/nav_profile" />
+
+</navigation>

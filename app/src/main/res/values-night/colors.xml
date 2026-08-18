@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="brand_primary">#5FD9C4</color>
+    <color name="brand_primary_dark">#00201B</color>
+    <color name="brand_primary_light">#8AF0DC</color>
+    <color name="brand_secondary">#FFB74D</color>
+    <color name="brand_tertiary">#C6BEFF</color>
+
+    <color name="primary_container">#005145</color>
+    <color name="on_primary_container">#A7F3E4</color>
+    <color name="secondary_container">#5C3D00</color>
+    <color name="on_secondary_container">#FFE2B8</color>
+    <color name="tertiary_container">#3A2E8F</color>
+    <color name="on_tertiary_container">#E4DEFF</color>
+
+    <color name="gradient_hero_start">#0B5F53</color>
+    <color name="gradient_hero_end">#04302A</color>
+
+    <!-- Surfaces -->
+    <color name="app_background">#0B1211</color>
+    <color name="surface">#101817</color>
+    <color name="surface_container">#16201E</color>
+    <color name="surface_container_high">#1E2A28</color>
+    <color name="surface_variant">#3D4A47</color>
+    <color name="on_surface_variant">#BFCBC8</color>
+    <color name="outline">#5C6B67</color>
+    <color name="outline_variant">#2A3634</color>
+    <color name="scrim">#99000000</color>
+
+    <!-- Type -->
+    <color name="text_primary">#E4EAE8</color>
+    <color name="text_secondary">#A9B8B4</color>
+    <color name="text_tertiary">#7F8E8A</color>
+
+    <!-- Status -->
+    <color name="status_income">#6FD98A</color>
+    <color name="status_expense">#FF8A80</color>
+    <color name="status_on_track">#6FD98A</color>
+    <color name="status_warning">#FFB74D</color>
+    <color name="status_exceeded">#FF8A80</color>
+
+    <color name="status_income_container">#12421F</color>
+    <color name="status_expense_container">#5C1614</color>
+    <color name="status_warning_container">#5C3D00</color>
+
+    <!-- Category hues, lifted for contrast against a near-black surface. -->
+    <color name="category_groceries">#7BD37F</color>
+    <color name="category_rent">#BCA79E</color>
+    <color name="category_utilities">#4DD0E1</color>
+    <color name="category_transport">#8C9EFF</color>
+    <color name="category_dining">#FFB74D</color>
+    <color name="category_entertainment">#F48FB1</color>
+    <color name="category_health">#4DD9C9</color>
+    <color name="category_shopping">#CE93D8</color>
+    <color name="category_education">#B0BEC5</color>
+    <color name="category_travel">#FF8A65</color>
+    <color name="category_salary">#81C784</color>
+    <color name="category_other_income">#AED581</color>
+
+    <!-- Legacy names -->
+    <color name="background_light">#0B1211</color>
+    <color name="surface_light">#101817</color>
+    <color name="divider">#26FFFFFF</color>
+</resources>

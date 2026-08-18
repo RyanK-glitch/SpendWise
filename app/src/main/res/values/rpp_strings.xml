@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="rpp_reports_empty_title">No spending this month</string>
+    <string name="rpp_reports_empty_body">Add a few transactions and the category breakdown appears here</string>
+
+    <!-- Settings subtitles are held to one line so every row is the same height. -->
+    <string name="rpp_privacy_subtitle">Stored only on this device</string>
+    <string name="rpp_privacy_subtitle_synced">On this device and your account</string>
+</resources>

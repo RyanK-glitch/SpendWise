@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="authx_password_helper">8+ characters, with a letter and a number</string>
+
+    <string name="authx_no_account_lead">Don\'t have an account?</string>
+    <string name="authx_sign_up_cta">Sign up</string>
+    <string name="authx_have_account_lead">Already have an account?</string>
+    <string name="authx_sign_in_cta">Sign in</string>
+</resources>

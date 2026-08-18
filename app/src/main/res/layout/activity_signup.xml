@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Account creation screen. -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:colorBackground"
+    android:fillViewport="true"
+    android:scrollbars="none">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/authRoot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/spacing_lg">
+
+        <View
+            android:id="@+id/heroPanel"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_hero_gradient"
+            app:layout_constraintBottom_toBottomOf="@+id/textAppName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/buttonBack"
+            android:layout_width="@dimen/touch_target_min"
+            android:layout_height="@dimen/touch_target_min"
+            android:layout_marginStart="@dimen/spacing_xs"
+            android:layout_marginTop="@dimen/spacing_sm"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cd_back"
+            android:scaleType="center"
+            android:src="@drawable/ic_arrow_back"
+            app:layout_constraintStart_toStartOf="@+id/formColumn"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/text_on_brand" />
+
+        <ImageView
+            android:id="@+id/imageLogo"
+            android:layout_width="@dimen/icon_lg"
+            android:layout_height="@dimen/icon_lg"
+            android:layout_marginStart="@dimen/screen_horizontal_padding"
+            android:layout_marginTop="@dimen/spacing_md"
+            android:contentDescription="@string/cd_app_logo"
+            android:src="@drawable/ic_wallet"
+            app:layout_constraintStart_toStartOf="@+id/formColumn"
+            app:layout_constraintTop_toBottomOf="@id/buttonBack"
+            app:tint="@color/text_on_brand" />
+
+        <TextView
+            android:id="@+id/textAppName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_sm"
+            android:layout_marginEnd="@dimen/screen_horizontal_padding"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:paddingBottom="@dimen/spacing_lg"
+            android:text="@string/app_name"
+            android:textAppearance="@style/TextAppearance.SpendWise.Display"
+            android:textColor="@color/text_on_brand"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintEnd_toEndOf="@+id/formColumn"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="@id/imageLogo"
+            app:layout_constraintTop_toBottomOf="@id/imageLogo" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/formColumn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xl"
+            android:paddingStart="@dimen/screen_horizontal_padding"
+            android:paddingEnd="@dimen/screen_horizontal_padding"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/heroPanel"
+            app:layout_constraintWidth_max="@dimen/content_max_width">
+
+            <TextView
+                android:id="@+id/textTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@string/auth_sign_up"
+                android:textAppearance="@style/TextAppearance.SpendWise.Headline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textSubtitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xs"
+                android:lineSpacingExtra="@dimen/spacing_xxs"
+                android:text="@string/auth_signup_subtitle"
+                android:textAppearance="@style/TextAppearance.SpendWise.Body"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textTitle" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputLayoutName"
+                style="@style/Widget.SpendWise.TextInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_lg"
+                android:hint="@string/auth_display_name"
+                app:boxCornerRadiusBottomEnd="@dimen/corner_radius_lg"
+                app:boxCornerRadiusBottomStart="@dimen/corner_radius_lg"
+                app:boxCornerRadiusTopEnd="@dimen/corner_radius_lg"
+                app:boxCornerRadiusTopStart="@dimen/corner_radius_lg"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textSubtitle">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="name"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPersonName|textCapWords"
+                    android:minHeight="@dimen/touch_target_min"
+                    android:singleLine="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputLayoutEmail"
+                style="@style/Widget.SpendWise.TextInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xs"
+                android:hint="@string/auth_email"
+                app:boxCornerRadiusBottomEnd="@dimen/corner_radius_lg"
+                app:boxCornerRadiusBottomStart="@dimen/corner_radius_lg"
+                app:boxCornerRadiusTopEnd="@dimen/corner_radius_lg"
+                app:boxCornerRadiusTopStart="@dimen/corner_radius_lg"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inputLayoutName">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="emailAddress"
+                    android:imeOptions="actionNext"
+                    android:inputType="textEmailAddress"
+                    android:minHeight="@dimen/touch_target_min"
+                    android:singleLine="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputLayoutPassword"
+                style="@style/Widget.SpendWise.TextInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xs"
+                android:hint="@string/auth_password"
+                app:boxCornerRadiusBottomEnd="@dimen/corner_radius_lg"
+                app:boxCornerRadiusBottomStart="@dimen/corner_radius_lg"
+                app:boxCornerRadiusTopEnd="@dimen/corner_radius_lg"
+                app:boxCornerRadiusTopStart="@dimen/corner_radius_lg"
+                app:endIconMode="password_toggle"
+                app:errorEnabled="true"
+                app:helperText="@string/authx_password_helper"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inputLayoutEmail">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="newPassword"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPassword"
+                    android:minHeight="@dimen/touch_target_min"
+                    android:singleLine="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputLayoutConfirm"
+                style="@style/Widget.SpendWise.TextInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xs"
+                android:hint="@string/auth_confirm_password"
+                app:boxCornerRadiusBottomEnd="@dimen/corner_radius_lg"
+                app:boxCornerRadiusBottomStart="@dimen/corner_radius_lg"
+                app:boxCornerRadiusTopEnd="@dimen/corner_radius_lg"
+                app:boxCornerRadiusTopStart="@dimen/corner_radius_lg"
+                app:endIconMode="password_toggle"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inputLayoutPassword">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editConfirm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="newPassword"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword"
+                    android:minHeight="@dimen/touch_target_min"
+                    android:singleLine="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/textError"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xs"
+                android:background="@drawable/bg_surface_rounded"
+                android:backgroundTint="@color/status_expense_container"
+                android:drawablePadding="@dimen/spacing_sm"
+                android:gravity="center_vertical"
+                android:paddingStart="@dimen/spacing_md"
+                android:paddingTop="@dimen/spacing_sm"
+                android:paddingEnd="@dimen/spacing_md"
+                android:paddingBottom="@dimen/spacing_sm"
+                android:textAppearance="@style/TextAppearance.SpendWise.Body"
+                android:textColor="@color/status_expense"
+                android:visibility="gone"
+                app:drawableStartCompat="@drawable/ic_warning"
+                app:drawableTint="@color/status_expense"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inputLayoutConfirm"
+                tools:text="An account with that email already exists"
+                tools:visibility="visible" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonSignUp"
+                style="@style/Widget.SpendWise.Button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_md"
+                android:text="@string/auth_sign_up"
+                app:cornerRadius="@dimen/corner_radius_lg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textError"
+                app:layout_goneMarginTop="@dimen/spacing_lg" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="@dimen/icon_md"
+                android:layout_height="@dimen/icon_md"
+                android:indeterminateTint="@color/text_on_brand"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/buttonSignUp"
+                app:layout_constraintEnd_toEndOf="@id/buttonSignUp"
+                app:layout_constraintStart_toStartOf="@id/buttonSignUp"
+                app:layout_constraintTop_toTopOf="@id/buttonSignUp"
+                tools:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/imageSecureBadge"
+                android:layout_width="@dimen/icon_sm"
+                android:layout_height="@dimen/icon_sm"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_shield"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textSecureNote"
+                app:tint="@color/text_tertiary" />
+
+            <TextView
+                android:id="@+id/textSecureNote"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_sm"
+                android:layout_marginTop="@dimen/spacing_lg"
+                android:lineSpacingExtra="@dimen/spacing_xxs"
+                android:text="@string/auth_secure_note"
+                android:textAppearance="@style/TextAppearance.SpendWise.Caption"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/imageSecureBadge"
+                app:layout_constraintTop_toBottomOf="@id/buttonSignUp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/textSignInPromptLead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/authx_have_account_lead"
+            android:textAppearance="@style/TextAppearance.SpendWise.Body"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textSignInPrompt"
+            app:layout_constraintEnd_toStartOf="@+id/textSignInPrompt"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="@id/formColumn" />
+
+        <TextView
+            android:id="@+id/textSignInPrompt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xl"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:minHeight="@dimen/touch_target_min"
+            android:paddingStart="@dimen/spacing_sm"
+            android:paddingEnd="@dimen/spacing_sm"
+            android:text="@string/authx_sign_in_cta"
+            android:textAppearance="@style/TextAppearance.SpendWise.Body"
+            android:textColor="?attr/colorPrimary"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/formColumn"
+            app:layout_constraintStart_toEndOf="@id/textSignInPromptLead"
+            app:layout_constraintTop_toBottomOf="@id/formColumn"
+            app:layout_constraintVertical_bias="1.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

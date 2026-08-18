@@ -1,0 +1,656 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Profile tab. Theme, currency, storage information and sign out. -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_background"
+    android:clipToPadding="false"
+    android:paddingBottom="@dimen/list_bottom_inset"
+    android:scrollbars="none">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/contentProfile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/screen_horizontal_padding"
+            android:paddingTop="@dimen/spacing_lg"
+            android:paddingEnd="@dimen/screen_horizontal_padding"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_max="@dimen/content_max_width">
+
+            <TextView
+                android:id="@+id/textProfileTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@string/profile_title"
+                android:textAppearance="@style/TextAppearance.SpendWise.Headline" />
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.SpendWise.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_md">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/textAvatar"
+                        android:layout_width="@dimen/avatar_lg"
+                        android:layout_height="@dimen/avatar_lg"
+                        android:background="@drawable/bg_icon_tint_soft"
+                        android:contentDescription="@string/cd_avatar"
+                        android:gravity="center"
+                        android:textAppearance="@style/TextAppearance.SpendWise.Display"
+                        android:textColor="@color/brand_primary"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="A" />
+
+                    <TextView
+                        android:id="@+id/textName"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_md"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textAppearance="@style/TextAppearance.SpendWise.Headline"
+                        app:layout_constraintBottom_toTopOf="@id/textEmail"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/textAvatar"
+                        app:layout_constraintTop_toTopOf="@id/textAvatar"
+                        app:layout_constraintVertical_chainStyle="packed"
+                        tools:text="Alex Morgan" />
+
+                    <TextView
+                        android:id="@+id/textEmail"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_xxs"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textAppearance="@style/TextAppearance.SpendWise.Body"
+                        app:layout_constraintBottom_toBottomOf="@id/textAvatar"
+                        app:layout_constraintEnd_toEndOf="@id/textName"
+                        app:layout_constraintStart_toStartOf="@id/textName"
+                        app:layout_constraintTop_toBottomOf="@id/textName"
+                        tools:text="alex.morgan@example.com" />
+
+                    <TextView
+                        android:id="@+id/textProvider"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_sm"
+                        android:background="@drawable/bg_status_chip"
+                        android:backgroundTint="@color/primary_container"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:paddingStart="@dimen/spacing_sm"
+                        android:paddingTop="@dimen/spacing_xs"
+                        android:paddingEnd="@dimen/spacing_sm"
+                        android:paddingBottom="@dimen/spacing_xs"
+                        android:textAppearance="@style/TextAppearance.SpendWise.Caption"
+                        android:textColor="@color/on_primary_container"
+                        app:layout_constrainedWidth="true"
+                        app:layout_constraintEnd_toEndOf="@id/textName"
+                        app:layout_constraintHorizontal_bias="0"
+                        app:layout_constraintStart_toStartOf="@id/textName"
+                        app:layout_constraintTop_toBottomOf="@id/textEmail"
+                        tools:text="Signed in with Google" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/textSessionWarning"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_sm"
+                android:background="@drawable/bg_surface_rounded"
+                android:backgroundTint="@color/status_warning_container"
+                android:drawablePadding="@dimen/spacing_sm"
+                android:gravity="center_vertical"
+                android:padding="@dimen/spacing_md"
+                android:text="@string/profile_session_memory_only"
+                android:textAppearance="@style/TextAppearance.SpendWise.Caption"
+                android:textColor="@color/status_warning"
+                android:visibility="gone"
+                app:drawableStartCompat="@drawable/ic_warning"
+                app:drawableTint="@color/status_warning"
+                tools:visibility="visible" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_lg"
+                android:layout_marginBottom="@dimen/spacing_sm"
+                android:text="@string/section_account"
+                android:textAppearance="@style/TextAppearance.SpendWise.SectionLabel" />
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.SpendWise.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:contentPadding="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/rowLedger"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="56dp"
+                        android:paddingStart="@dimen/spacing_md"
+                        android:paddingTop="@dimen/spacing_sm"
+                        android:paddingEnd="@dimen/spacing_md"
+                        android:paddingBottom="@dimen/spacing_sm">
+
+                        <ImageView
+                            android:id="@+id/iconLedger"
+                            android:layout_width="@dimen/icon_md"
+                            android:layout_height="@dimen/icon_md"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_wallet"
+                            app:layout_constraintBottom_toBottomOf="@id/textLedgerSize"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/textLedgerTitle"
+                            app:tint="@color/text_secondary" />
+
+                        <TextView
+                            android:id="@+id/textLedgerTitle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_md"
+                            android:layout_marginEnd="@dimen/spacing_xl"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="@string/rp_profile_ledger"
+                            android:textAppearance="@style/TextAppearance.SpendWise.Body"
+                            android:textColor="@color/text_primary"
+                            app:layout_constraintBottom_toTopOf="@id/textLedgerSize"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/iconLedger"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_chainStyle="packed" />
+
+                        <TextView
+                            android:id="@+id/textLedgerSize"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:textAppearance="@style/TextAppearance.SpendWise.Caption"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="@id/textLedgerTitle"
+                            app:layout_constraintStart_toStartOf="@id/textLedgerTitle"
+                            app:layout_constraintTop_toBottomOf="@id/textLedgerTitle"
+                            tools:text="260 transactions in your ledger" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="56dp"
+                        android:background="@color/outline_variant" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/rowPrivacy"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:minHeight="56dp"
+                        android:paddingStart="@dimen/spacing_md"
+                        android:paddingTop="@dimen/spacing_sm"
+                        android:paddingEnd="@dimen/spacing_md"
+                        android:paddingBottom="@dimen/spacing_sm">
+
+                        <ImageView
+                            android:id="@+id/iconPrivacy"
+                            android:layout_width="@dimen/icon_md"
+                            android:layout_height="@dimen/icon_md"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_shield"
+                            app:layout_constraintBottom_toBottomOf="@id/textPrivacySubtitle"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/textPrivacyTitle"
+                            app:tint="@color/text_secondary" />
+
+                        <TextView
+                            android:id="@+id/textPrivacyTitle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_md"
+                            android:layout_marginEnd="@dimen/spacing_sm"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="@string/rp_profile_privacy"
+                            android:textAppearance="@style/TextAppearance.SpendWise.Body"
+                            android:textColor="@color/text_primary"
+                            app:layout_constraintBottom_toTopOf="@id/textPrivacySubtitle"
+                            app:layout_constraintEnd_toStartOf="@id/iconPrivacyChevron"
+                            app:layout_constraintStart_toEndOf="@id/iconPrivacy"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_chainStyle="packed" />
+
+                        <TextView
+                            android:id="@+id/textPrivacySubtitle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="@string/rpp_privacy_subtitle"
+                            android:textAppearance="@style/TextAppearance.SpendWise.Caption"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="@id/textPrivacyTitle"
+                            app:layout_constraintStart_toStartOf="@id/textPrivacyTitle"
+                            app:layout_constraintTop_toBottomOf="@id/textPrivacyTitle" />
+
+                        <ImageView
+                            android:id="@+id/iconPrivacyChevron"
+                            android:layout_width="@dimen/icon_md"
+                            android:layout_height="@dimen/icon_md"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_chevron_right"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:tint="@color/text_tertiary" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_lg"
+                android:layout_marginBottom="@dimen/spacing_sm"
+                android:text="@string/section_preferences"
+                android:textAppearance="@style/TextAppearance.SpendWise.SectionLabel" />
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.SpendWise.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:contentPadding="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/rowNotifications"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:minHeight="56dp"
+                        android:paddingStart="@dimen/spacing_md"
+                        android:paddingTop="@dimen/spacing_sm"
+                        android:paddingEnd="@dimen/spacing_md"
+                        android:paddingBottom="@dimen/spacing_sm">
+
+                        <ImageView
+                            android:id="@+id/iconNotifications"
+                            android:layout_width="@dimen/icon_md"
+                            android:layout_height="@dimen/icon_md"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_bell"
+                            app:layout_constraintBottom_toBottomOf="@id/textNotificationStatus"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/textNotificationsTitle"
+                            app:tint="@color/text_secondary" />
+
+                        <TextView
+                            android:id="@+id/textNotificationsTitle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_md"
+                            android:layout_marginEnd="@dimen/spacing_sm"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="@string/profile_notifications"
+                            android:textAppearance="@style/TextAppearance.SpendWise.Body"
+                            android:textColor="@color/text_primary"
+                            app:layout_constraintBottom_toTopOf="@id/textNotificationStatus"
+                            app:layout_constraintEnd_toStartOf="@id/switchNotifications"
+                            app:layout_constraintStart_toEndOf="@id/iconNotifications"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_chainStyle="packed" />
+
+                        <TextView
+                            android:id="@+id/textNotificationStatus"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:textAppearance="@style/TextAppearance.SpendWise.Caption"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="@id/textNotificationsTitle"
+                            app:layout_constraintStart_toStartOf="@id/textNotificationsTitle"
+                            app:layout_constraintTop_toBottomOf="@id/textNotificationsTitle"
+                            tools:text="Enable budget alerts" />
+
+                        <com.google.android.material.materialswitch.MaterialSwitch
+                            android:id="@+id/switchNotifications"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:clickable="false"
+                            android:focusable="false"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:checked="true" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="56dp"
+                        android:background="@color/outline_variant" />
+
+                    <LinearLayout
+                        android:id="@+id/rowAppearance"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingBottom="@dimen/spacing_md">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="56dp"
+                            android:paddingStart="@dimen/spacing_md"
+                            android:paddingTop="@dimen/spacing_sm"
+                            android:paddingEnd="@dimen/spacing_md"
+                            android:paddingBottom="@dimen/spacing_sm">
+
+                            <ImageView
+                                android:id="@+id/iconAppearance"
+                                android:layout_width="@dimen/icon_md"
+                                android:layout_height="@dimen/icon_md"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_moon"
+                                app:layout_constraintBottom_toBottomOf="@id/textAppearanceSummary"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="@id/textAppearanceTitle"
+                                app:tint="@color/text_secondary" />
+
+                            <TextView
+                                android:id="@+id/textAppearanceTitle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/spacing_md"
+                                android:layout_marginEnd="@dimen/spacing_xl"
+                                android:ellipsize="end"
+                                android:maxLines="1"
+                                android:text="@string/profile_appearance"
+                                android:textAppearance="@style/TextAppearance.SpendWise.Body"
+                                android:textColor="@color/text_primary"
+                                app:layout_constraintBottom_toTopOf="@id/textAppearanceSummary"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/iconAppearance"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_chainStyle="packed" />
+
+                            <TextView
+                                android:id="@+id/textAppearanceSummary"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                                android:maxLines="1"
+                                android:text="@string/theme_summary_system"
+                                android:textAppearance="@style/TextAppearance.SpendWise.Caption"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="@id/textAppearanceTitle"
+                                app:layout_constraintStart_toStartOf="@id/textAppearanceTitle"
+                                app:layout_constraintTop_toBottomOf="@id/textAppearanceTitle"
+                                tools:text="Follows your system light/dark setting" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <com.google.android.material.button.MaterialButtonToggleGroup
+                            android:id="@+id/toggleTheme"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="56dp"
+                            android:layout_marginTop="@dimen/spacing_sm"
+                            android:layout_marginEnd="@dimen/spacing_md"
+                            app:selectionRequired="true"
+                            app:singleSelection="true">
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/buttonThemeSystem"
+                                style="?attr/materialButtonOutlinedStyle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:insetBottom="0dp"
+                                android:insetTop="0dp"
+                                android:minHeight="@dimen/touch_target_min"
+                                android:minWidth="0dp"
+                                android:paddingStart="@dimen/spacing_xs"
+                                android:paddingEnd="@dimen/spacing_xs"
+                                android:text="@string/theme_option_system"
+                                android:textSize="@dimen/text_caption" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/buttonThemeLight"
+                                style="?attr/materialButtonOutlinedStyle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:insetBottom="0dp"
+                                android:insetTop="0dp"
+                                android:minHeight="@dimen/touch_target_min"
+                                android:minWidth="0dp"
+                                android:paddingStart="@dimen/spacing_xs"
+                                android:paddingEnd="@dimen/spacing_xs"
+                                android:text="@string/theme_option_light"
+                                android:textSize="@dimen/text_caption" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/buttonThemeDark"
+                                style="?attr/materialButtonOutlinedStyle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:insetBottom="0dp"
+                                android:insetTop="0dp"
+                                android:minHeight="@dimen/touch_target_min"
+                                android:minWidth="0dp"
+                                android:paddingStart="@dimen/spacing_xs"
+                                android:paddingEnd="@dimen/spacing_xs"
+                                android:text="@string/theme_option_dark"
+                                android:textSize="@dimen/text_caption" />
+                        </com.google.android.material.button.MaterialButtonToggleGroup>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="56dp"
+                        android:background="@color/outline_variant" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/rowCurrency"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:minHeight="56dp"
+                        android:paddingStart="@dimen/spacing_md"
+                        android:paddingTop="@dimen/spacing_sm"
+                        android:paddingEnd="@dimen/spacing_md"
+                        android:paddingBottom="@dimen/spacing_sm">
+
+                        <ImageView
+                            android:id="@+id/iconCurrency"
+                            android:layout_width="@dimen/icon_md"
+                            android:layout_height="@dimen/icon_md"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_currency"
+                            app:layout_constraintBottom_toBottomOf="@id/textCurrencySummary"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/textCurrencyTitle"
+                            app:tint="@color/text_secondary" />
+
+                        <TextView
+                            android:id="@+id/textCurrencyTitle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_md"
+                            android:layout_marginEnd="@dimen/spacing_sm"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="@string/profile_currency"
+                            android:textAppearance="@style/TextAppearance.SpendWise.Body"
+                            android:textColor="@color/text_primary"
+                            app:layout_constraintBottom_toTopOf="@id/textCurrencySummary"
+                            app:layout_constraintEnd_toStartOf="@id/iconCurrencyChevron"
+                            app:layout_constraintStart_toEndOf="@id/iconCurrency"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_chainStyle="packed" />
+
+                        <TextView
+                            android:id="@+id/textCurrencySummary"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:textAppearance="@style/TextAppearance.SpendWise.Caption"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="@id/textCurrencyTitle"
+                            app:layout_constraintStart_toStartOf="@id/textCurrencyTitle"
+                            app:layout_constraintTop_toBottomOf="@id/textCurrencyTitle"
+                            tools:text="Sri Lankan Rupee · the ledger's own currency" />
+
+                        <ImageView
+                            android:id="@+id/iconCurrencyChevron"
+                            android:layout_width="@dimen/icon_md"
+                            android:layout_height="@dimen/icon_md"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_chevron_right"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:tint="@color/text_tertiary" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_lg"
+                android:layout_marginBottom="@dimen/spacing_sm"
+                android:text="@string/section_about"
+                android:textAppearance="@style/TextAppearance.SpendWise.SectionLabel" />
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.SpendWise.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:contentPadding="0dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/rowAbout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:minHeight="56dp"
+                    android:paddingStart="@dimen/spacing_md"
+                    android:paddingTop="@dimen/spacing_sm"
+                    android:paddingEnd="@dimen/spacing_md"
+                    android:paddingBottom="@dimen/spacing_sm">
+
+                    <ImageView
+                        android:id="@+id/iconAbout"
+                        android:layout_width="@dimen/icon_md"
+                        android:layout_height="@dimen/icon_md"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_info"
+                        app:layout_constraintBottom_toBottomOf="@id/textVersion"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/textAboutTitle"
+                        app:tint="@color/text_secondary" />
+
+                    <TextView
+                        android:id="@+id/textAboutTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_md"
+                        android:layout_marginEnd="@dimen/spacing_sm"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="@string/app_name"
+                        android:textAppearance="@style/TextAppearance.SpendWise.Body"
+                        android:textColor="@color/text_primary"
+                        app:layout_constraintBottom_toTopOf="@id/textVersion"
+                        app:layout_constraintEnd_toStartOf="@id/iconAboutChevron"
+                        app:layout_constraintStart_toEndOf="@id/iconAbout"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_chainStyle="packed" />
+
+                    <TextView
+                        android:id="@+id/textVersion"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textAppearance="@style/TextAppearance.SpendWise.Caption"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@id/textAboutTitle"
+                        app:layout_constraintStart_toStartOf="@id/textAboutTitle"
+                        app:layout_constraintTop_toBottomOf="@id/textAboutTitle"
+                        tools:text="Version 1.0" />
+
+                    <ImageView
+                        android:id="@+id/iconAboutChevron"
+                        android:layout_width="@dimen/icon_md"
+                        android:layout_height="@dimen/icon_md"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_chevron_right"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="@color/text_tertiary" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonSignOut"
+                style="@style/Widget.SpendWise.Button.Outlined"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xl"
+                android:layout_marginBottom="@dimen/spacing_lg"
+                android:text="@string/profile_sign_out"
+                android:textColor="@color/status_expense"
+                app:icon="@drawable/ic_logout"
+                app:iconGravity="textStart"
+                app:iconSize="@dimen/icon_md"
+                app:iconTint="@color/status_expense"
+                app:strokeColor="@color/status_expense" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

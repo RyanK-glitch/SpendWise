@@ -1,0 +1,126 @@
+plugins {
+    id 'com.android.application'
+}
+
+// Applied conditionally: the plugin hard-fails when google-services.json is absent.
+def firebaseConfigured = file('google-services.json').exists()
+if (firebaseConfigured) {
+    apply plugin: 'com.google.gms.google-services'
+}
+
+android {
+    namespace 'com.spendwise'
+    compileSdk 36
+
+    defaultConfig {
+        applicationId "com.spendwise"
+        minSdk 24
+        targetSdk 36
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "boolean", "FIREBASE_CONFIGURED", "${firebaseConfigured}"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
+    }
+
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+        // Enables java.time.* (LocalDate) down to minSdk 24 instead of requiring API 26.
+        coreLibraryDesugaringEnabled true
+    }
+
+    buildFeatures {
+        viewBinding true
+        buildConfig true
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+        unitTests.includeAndroidResources = true
+    }
+
+    // Shared test fixtures, deliberately absent from both production source sets.
+    sourceSets {
+        test { java.srcDirs += 'src/testFixtures/java' }
+        androidTest { java.srcDirs += 'src/testFixtures/java' }
+    }
+
+    packagingOptions {
+        resources.excludes += ['META-INF/LICENSE.md', 'META-INF/LICENSE-notice.md']
+    }
+}
+
+dependencies {
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.3'
+
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'androidx.core:core:1.13.1'
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.recyclerview:recyclerview:1.3.2'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+
+    // MVVM
+    implementation 'androidx.lifecycle:lifecycle-viewmodel:2.8.7'
+    implementation 'androidx.lifecycle:lifecycle-livedata:2.8.7'
+    implementation 'androidx.lifecycle:lifecycle-runtime:2.8.7'
+    implementation 'androidx.fragment:fragment:1.8.5'
+
+    // Navigation Component (FR-06 Intuitive Navigation)
+    implementation 'androidx.navigation:navigation-fragment:2.8.5'
+    implementation 'androidx.navigation:navigation-ui:2.8.5'
+
+    // Room (local persistence)
+    implementation 'androidx.room:room-runtime:2.6.1'
+    annotationProcessor 'androidx.room:room-compiler:2.6.1'
+
+    // Encrypted credential storage. Alpha line required: MasterKey.Builder is not in 1.0.0.
+    implementation 'androidx.security:security-crypto:1.1.0-alpha06'
+
+    // Background scheduling for budget-threshold alerts (FR-25)
+    implementation 'androidx.work:work-runtime:2.9.1'
+
+    // Required: firestore resolves listenablefuture to an empty placeholder, which
+    // otherwise breaks androidx.work's Worker supertype.
+    implementation 'com.google.guava:guava:33.3.1-android'
+
+    // Firebase / Google Sign-In
+    implementation platform('com.google.firebase:firebase-bom:33.7.0')
+    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-messaging'
+    implementation 'com.google.firebase:firebase-firestore'
+    implementation 'com.google.android.gms:play-services-auth:21.3.0'
+
+    // ---- Unit tests (JVM) ----
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.mockito:mockito-core:5.14.2'
+    testImplementation 'androidx.arch.core:core-testing:2.2.0'
+
+    // ---- Instrumented tests (device/emulator) ----
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+    androidTestImplementation 'androidx.test:runner:1.6.2'
+    androidTestImplementation 'androidx.test:rules:1.6.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.6.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-intents:3.6.1'
+    androidTestImplementation 'androidx.room:room-testing:2.6.1'
+}

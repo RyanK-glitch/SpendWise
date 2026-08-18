@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="spacing_xxs">2dp</dimen>
+    <dimen name="spacing_xs">4dp</dimen>
+    <dimen name="spacing_sm">8dp</dimen>
+    <dimen name="spacing_md">16dp</dimen>
+    <dimen name="spacing_lg">24dp</dimen>
+    <dimen name="spacing_xl">32dp</dimen>
+    <dimen name="spacing_xxl">48dp</dimen>
+
+    <dimen name="touch_target_min">48dp</dimen>
+    <dimen name="button_height">52dp</dimen>
+
+    <dimen name="corner_radius_sm">8dp</dimen>
+    <dimen name="corner_radius">12dp</dimen>
+    <dimen name="corner_radius_lg">20dp</dimen>
+    <dimen name="corner_radius_xl">28dp</dimen>
+    <dimen name="corner_radius_pill">100dp</dimen>
+
+    <dimen name="card_elevation">1dp</dimen>
+    <dimen name="card_elevation_raised">3dp</dimen>
+
+    <dimen name="text_caption">12sp</dimen>
+    <dimen name="text_body">15sp</dimen>
+    <dimen name="text_title">18sp</dimen>
+    <dimen name="text_amount">20sp</dimen>
+    <dimen name="text_headline">24sp</dimen>
+    <dimen name="text_display">30sp</dimen>
+    <dimen name="text_hero_amount">40sp</dimen>
+
+    <!-- Component sizes -->
+    <dimen name="icon_sm">16dp</dimen>
+    <dimen name="icon_md">24dp</dimen>
+    <dimen name="icon_lg">32dp</dimen>
+    <dimen name="category_avatar">48dp</dimen>
+    <dimen name="avatar_lg">88dp</dimen>
+    <dimen name="progress_track_height">10dp</dimen>
+    <dimen name="bottom_nav_height">72dp</dimen>
+    <dimen name="list_bottom_inset">104dp</dimen>
+
+    <!-- Phone-portrait default; overridden in values-sw600dp for tablets. -->
+    <dimen name="content_max_width">640dp</dimen>
+    <dimen name="screen_horizontal_padding">16dp</dimen>
+    <dimen name="balance_card_height">180dp</dimen>
+    <dimen name="auth_hero_height">200dp</dimen>
+    <dimen name="empty_illustration">96dp</dimen>
+    <dimen name="search_field_height">56dp</dimen>
+    <dimen name="icon_field">20dp</dimen>
+    <dimen name="settings_row_height">56dp</dimen>
+    <dimen name="settings_text_rail">56dp</dimen>
+    <dimen name="category_avatar_inset">12dp</dimen>
+</resources>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Read-only detail sheet reached by tapping a row. -->
+    <string name="tx_detail_amount">Amount: %1$s</string>
+    <string name="tx_detail_type">Type: %1$s</string>
+    <string name="tx_detail_category">Category: %1$s</string>
+    <string name="tx_detail_payment">Payment: %1$s</string>
+    <string name="tx_detail_date">Date: %1$s</string>
+    <string name="tx_detail_note">Note: %1$s</string>
+    <string name="tx_detail_swipe_hint">Tip: swipe a row sideways to delete it.</string>
+
+    <!-- An empty ledger is a different situation from an over-narrow filter. -->
+    <string name="tx_empty_ledger">No transactions yet</string>
+    <string name="tx_empty_ledger_hint">Tap + to record your first transaction</string>
+
+    <string name="tx_amount_invalid">Enter an amount above zero, e.g. 12.50</string>
+    <string name="tx_edit_save">Save changes</string>
+    <string name="tx_edit_saved">Transaction updated</string>
+    <string name="tx_edit_missing">That transaction no longer exists</string>
+    <string name="tx_action_edit">Edit</string>
+    <string name="tx_budget_edit_title">%1$s budget</string>
+    <string name="tx_budget_delete_confirm">Delete the %1$s budget? Your transactions are not affected.</string>
+    <string name="tx_budget_deleted">Budget deleted</string>
+</resources>

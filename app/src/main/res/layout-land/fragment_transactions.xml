@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Activity tab. Search box, filter button and the ledger list. -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_background">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineColumns"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.42" />
+
+    <ScrollView
+        android:id="@+id/scrollHeader"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/guidelineColumns"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/layoutHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/screen_horizontal_padding"
+            android:paddingTop="@dimen/spacing_lg"
+            android:paddingEnd="@dimen/screen_horizontal_padding"
+            android:paddingBottom="@dimen/spacing_sm">
+
+            <TextView
+                android:id="@+id/textScreenTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@string/transactions_title"
+                android:textAppearance="@style/TextAppearance.SpendWise.Headline" />
+
+            <TextView
+                android:id="@+id/textScreenSubtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xxs"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@string/bt_transactions_subtitle"
+                android:textAppearance="@style/TextAppearance.SpendWise.Body" />
+
+            <LinearLayout
+                android:id="@+id/layoutSearchRow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_md"
+                android:baselineAligned="false"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/layoutSearchField"
+                    android:layout_width="0dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_surface_container"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/spacing_md"
+                    android:paddingEnd="@dimen/spacing_xxs">
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_field"
+                        android:layout_height="@dimen/icon_field"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_search"
+                        app:tint="@color/text_tertiary" />
+
+                    <EditText
+                        android:id="@+id/editSearch"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/spacing_sm"
+                        android:layout_marginEnd="@dimen/spacing_xs"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:hint="@string/transactions_search_hint"
+                        android:imeOptions="actionSearch"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:paddingStart="0dp"
+                        android:paddingEnd="0dp"
+                        android:singleLine="true"
+                        android:textAppearance="@style/TextAppearance.SpendWise.Body"
+                        android:textColor="@color/text_primary"
+                        android:textColorHint="@color/text_tertiary" />
+
+                    <ImageButton
+                        android:id="@+id/buttonClearSearch"
+                        android:layout_width="@dimen/touch_target_min"
+                        android:layout_height="@dimen/touch_target_min"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="@string/cd_clear_search"
+                        android:padding="12dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_clear"
+                        android:visibility="gone"
+                        app:tint="@color/text_secondary"
+                        tools:visibility="visible" />
+                </LinearLayout>
+
+                <FrameLayout
+                    android:id="@+id/buttonFilter"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="@dimen/spacing_sm"
+                    android:background="@drawable/bg_surface_container"
+                    android:clickable="true"
+                    android:contentDescription="@string/cd_filter_button"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground">
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_md"
+                        android:layout_height="@dimen/icon_md"
+                        android:layout_gravity="center"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_filter"
+                        app:tint="@color/brand_primary" />
+
+                    <TextView
+                        android:id="@+id/textFilterCount"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_gravity="top|end"
+                        android:layout_marginTop="@dimen/spacing_xs"
+                        android:layout_marginEnd="@dimen/spacing_xs"
+                        android:background="@drawable/bg_filter_chip_count"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:textAppearance="@style/TextAppearance.SpendWise.Caption"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:visibility="gone"
+                        tools:text="3"
+                        tools:visibility="visible" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_sm"
+                android:baselineAligned="false"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textResultCount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textAppearance="@style/TextAppearance.SpendWise.Caption"
+                    tools:text="42 of 260 transactions" />
+
+                <TextView
+                    android:id="@+id/textClearFilters"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/touch_target_min"
+                    android:background="?attr/selectableItemBackground"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:paddingStart="@dimen/spacing_sm"
+                    android:paddingEnd="@dimen/spacing_sm"
+                    android:text="@string/transactions_clear_filters"
+                    android:textAppearance="@style/TextAppearance.SpendWise.Caption"
+                    android:textColor="@color/brand_primary"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <View
+        android:id="@+id/dividerColumns"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:background="@color/outline_variant"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guidelineColumns"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerTransactions"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingTop="@dimen/spacing_xs"
+        android:paddingBottom="@dimen/list_bottom_inset"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/dividerColumns"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:itemCount="6"
+        tools:listitem="@layout/item_transaction" />
+
+    <LinearLayout
+        android:id="@+id/layoutEmpty"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/spacing_xl"
+        android:paddingEnd="@dimen/spacing_xl"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/dividerColumns"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible">
+
+        <ImageView
+            android:layout_width="@dimen/empty_illustration"
+            android:layout_height="@dimen/empty_illustration"
+            android:alpha="0.45"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_empty_box"
+            app:tint="@color/text_tertiary" />
+
+        <TextView
+            android:id="@+id/textEmptyTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_md"
+            android:gravity="center"
+            android:text="@string/transactions_empty"
+            android:textAppearance="@style/TextAppearance.SpendWise.Title" />
+
+        <TextView
+            android:id="@+id/textEmptyHint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_md"
+            android:gravity="center"
+            android:lineSpacingMultiplier="1.25"
+            android:text="@string/transactions_empty_hint"
+            android:textAppearance="@style/TextAppearance.SpendWise.Body" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonClearAllEmpty"
+            style="@style/Widget.SpendWise.Button.Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_md"
+            android:minHeight="@dimen/touch_target_min"
+            android:text="@string/transactions_clear_filters"
+            android:textColor="@color/brand_primary"
+            android:textStyle="bold"
+            android:visibility="gone"
+            tools:visibility="visible" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

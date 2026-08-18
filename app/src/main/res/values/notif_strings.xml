@@ -1,0 +1,22 @@
+<resources>
+
+    <string name="notif_x_channel_account">Account activity</string>
+    <string name="notif_x_channel_account_desc">Confirms when you sign in or sign out</string>
+    <string name="notif_x_channel_transaction">Transaction activity</string>
+    <string name="notif_x_channel_transaction_desc">Confirms each income and expense you record</string>
+
+    <string name="notif_x_signed_in_title">Signed in</string>
+    <string name="notif_x_signed_in_body">Welcome back, %1$s, you signed in with %2$s.</string>
+    <string name="notif_x_signed_in_fallback_name">there</string>
+    <string name="notif_x_method_email">email</string>
+    <string name="notif_x_method_google">Google</string>
+
+    <string name="notif_x_signed_out_title">Signed out</string>
+    <string name="notif_x_signed_out_body">You have been signed out of SpendWise.</string>
+
+    <string name="notif_x_income_title">Income recorded</string>
+    <string name="notif_x_income_body">%1$s added to %2$s.</string>
+    <string name="notif_x_expense_title">Expense recorded</string>
+    <string name="notif_x_expense_body">%1$s spent on %2$s.</string>
+
+</resources>

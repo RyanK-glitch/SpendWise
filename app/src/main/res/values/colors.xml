@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ============ Brand ramp ============ -->
+    <color name="brand_primary">#00695C</color>
+    <color name="brand_primary_dark">#00382F</color>
+    <color name="brand_primary_light">#4DB6AC</color>
+    <color name="brand_secondary">#FF8F00</color>
+    <color name="brand_tertiary">#5B4CC4</color>
+
+    <color name="primary_container">#A7F3E4</color>
+    <color name="on_primary_container">#00201B</color>
+    <color name="secondary_container">#FFE2B8</color>
+    <color name="on_secondary_container">#2A1800</color>
+    <color name="tertiary_container">#E4DEFF</color>
+    <color name="on_tertiary_container">#1B0C63</color>
+
+    <!-- Two-stop gradient for the balance hero card. -->
+    <color name="gradient_hero_start">#00897B</color>
+    <color name="gradient_hero_end">#00463C</color>
+
+    <!-- ============ Surfaces ============ -->
+    <color name="app_background">#F3F7F6</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="surface_container">#F8FBFA</color>
+    <color name="surface_container_high">#EDF3F1</color>
+    <color name="surface_variant">#DCE6E3</color>
+    <color name="on_surface_variant">#404A48</color>
+    <color name="outline">#BCC7C4</color>
+    <color name="outline_variant">#E1E9E7</color>
+    <color name="scrim">#66000000</color>
+
+    <!-- ============ Type ============ -->
+    <color name="text_primary">#101C1A</color>
+    <color name="text_secondary">#52625E</color>
+    <color name="text_tertiary">#7C8B87</color>
+    <color name="text_on_brand">#FFFFFF</color>
+    <!-- Muted white for secondary text sitting on the brand-coloured hero card. -->
+    <color name="text_on_brand_muted">#B8E5DD</color>
+
+    <!-- ============ Semantic status ============ -->
+    <color name="status_income">#1B7A32</color>
+    <color name="status_expense">#C62828</color>
+    <color name="status_on_track">#1B7A32</color>
+    <color name="status_warning">#E06C00</color>
+    <color name="status_exceeded">#C62828</color>
+
+    <!-- Tinted backings for status chips, the same hue at container tone. -->
+    <color name="status_income_container">#C8EFD1</color>
+    <color name="status_expense_container">#FFDAD6</color>
+    <color name="status_warning_container">#FFE0B8</color>
+
+    <!-- ============ Category hues ============ -->
+    <color name="category_groceries">#43A047</color>
+    <color name="category_rent">#795548</color>
+    <color name="category_utilities">#0097A7</color>
+    <color name="category_transport">#3F51B5</color>
+    <color name="category_dining">#FB8C00</color>
+    <color name="category_entertainment">#E91E63</color>
+    <color name="category_health">#00897B</color>
+    <color name="category_shopping">#8E24AA</color>
+    <color name="category_education">#546E7A</color>
+    <color name="category_travel">#F4511E</color>
+    <color name="category_salary">#2E7D32</color>
+    <color name="category_other_income">#7CB342</color>
+
+    <!-- ============ Legacy names ============ -->
+    <color name="surface_light">#FFFFFF</color>
+    <color name="surface_dark">#101817</color>
+    <color name="background_light">#F3F7F6</color>
+    <color name="background_dark">#0B1211</color>
+    <color name="text_primary_light">#101C1A</color>
+    <color name="text_secondary_light">#52625E</color>
+    <color name="text_primary_dark">#E4EAE8</color>
+    <color name="text_secondary_dark">#A9B8B4</color>
+
+    <color name="ripple_on_brand">#33FFFFFF</color>
+    <color name="ripple_on_surface">#14000000</color>
+
+    <color name="divider">#1F000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="ic_launcher_background">#00695C</color>
+</resources>

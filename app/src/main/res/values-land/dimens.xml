@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="spacing_lg">16dp</dimen>
+    <dimen name="spacing_xl">20dp</dimen>
+    <dimen name="balance_card_height">130dp</dimen>
+    <dimen name="text_display">26sp</dimen>
+    <dimen name="text_headline">20sp</dimen>
+    <dimen name="text_hero_amount">30sp</dimen>
+    <dimen name="auth_hero_height">120dp</dimen>
+    <dimen name="avatar_lg">64dp</dimen>
+    <dimen name="empty_illustration">64dp</dimen>
+</resources>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- One category row in the Reports list, with its scaled bar. -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="72dp"
+    android:paddingTop="@dimen/spacing_sm"
+    android:paddingBottom="@dimen/spacing_sm">
+
+    <ImageView
+        android:id="@+id/viewColourKey"
+        android:layout_width="@dimen/category_avatar"
+        android:layout_height="@dimen/category_avatar"
+        android:background="@drawable/bg_category_circle"
+        android:contentDescription="@null"
+        android:padding="@dimen/category_avatar_inset"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/white"
+        tools:src="@drawable/ic_wallet" />
+
+    <TextView
+        android:id="@+id/textCategory"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_md"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textAppearance="@style/TextAppearance.SpendWise.Title"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintBottom_toTopOf="@id/textCount"
+        app:layout_constraintEnd_toStartOf="@id/textAmount"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/viewColourKey"
+        app:layout_constraintTop_toTopOf="@id/viewColourKey"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="Groceries" />
+
+    <TextView
+        android:id="@+id/textCount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_xxs"
+        android:layout_marginEnd="@dimen/spacing_sm"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textAppearance="@style/TextAppearance.SpendWise.Caption"
+        app:layout_constraintBottom_toBottomOf="@id/viewColourKey"
+        app:layout_constraintEnd_toStartOf="@id/textShare"
+        app:layout_constraintStart_toStartOf="@id/textCategory"
+        app:layout_constraintTop_toBottomOf="@id/textCategory"
+        tools:text="24% of spending" />
+
+    <TextView
+        android:id="@+id/textAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_sm"
+        android:maxLines="1"
+        android:textAppearance="@style/TextAppearance.SpendWise.Amount"
+        android:textColor="@color/text_primary"
+        app:layout_constraintBaseline_toBaselineOf="@id/textCategory"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="LKR 287.40" />
+
+    <TextView
+        android:id="@+id/textShare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:textAppearance="@style/TextAppearance.SpendWise.Caption"
+        app:layout_constraintBaseline_toBaselineOf="@id/textCount"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="24%" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrierHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="viewColourKey,textCount" />
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progressShare"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_sm"
+        android:max="100"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/textCategory"
+        app:layout_constraintTop_toBottomOf="@id/barrierHeader"
+        app:trackCornerRadius="@dimen/corner_radius_pill"
+        app:trackThickness="@dimen/progress_track_height"
+        tools:progress="60" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

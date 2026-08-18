@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The shell every tab is drawn inside: nav host, + button, bottom navigation bar. -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mainRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_background">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/navHostFragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="@id/navDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navGraph="@navigation/nav_graph" />
+
+    <View
+        android:id="@+id/navDivider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/outline_variant"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/screen_horizontal_padding"
+        android:layout_marginBottom="@dimen/spacing_md"
+        android:contentDescription="@string/action_add"
+        android:src="@drawable/ic_add"
+        app:backgroundTint="@color/brand_primary"
+        app:borderWidth="0dp"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toTopOf="@id/navDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:maxImageSize="@dimen/icon_md"
+        app:rippleColor="@color/ripple_on_brand"
+        app:tint="@color/white" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/surface"
+        android:minHeight="@dimen/bottom_nav_height"
+        app:activeIndicatorLabelPadding="@dimen/spacing_xs"
+        app:elevation="@dimen/card_elevation_raised"
+        app:itemIconSize="@dimen/icon_md"
+        app:itemIconTint="@color/selector_nav_item"
+        app:itemPaddingBottom="@dimen/spacing_sm"
+        app:itemPaddingTop="@dimen/spacing_sm"
+        app:itemRippleColor="@color/ripple_on_surface"
+        app:itemTextAppearanceActive="@style/TextAppearance.SpendWise.Caption"
+        app:itemTextAppearanceActiveBoldEnabled="false"
+        app:itemTextAppearanceInactive="@style/TextAppearance.SpendWise.Caption"
+        app:itemTextColor="@color/selector_nav_item"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

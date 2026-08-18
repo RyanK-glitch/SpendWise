@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Appearance -->
+    <string name="theme_option_system">System</string>
+    <string name="theme_option_light">Light</string>
+    <string name="theme_option_dark">Dark</string>
+    <string name="theme_summary_system">Follows your system light/dark setting</string>
+    <string name="theme_summary_light">Always light</string>
+    <string name="theme_summary_dark">Always dark</string>
+
+</resources>

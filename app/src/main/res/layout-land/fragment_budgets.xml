@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Budgets tab. Monthly limits per category. -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_background">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineColumns"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.44" />
+
+    <ScrollView
+        android:id="@+id/scrollSummary"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:paddingBottom="@dimen/spacing_md"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/guidelineColumns"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/screen_horizontal_padding"
+                android:paddingTop="@dimen/spacing_lg"
+                android:paddingEnd="@dimen/screen_horizontal_padding">
+
+                <TextView
+                    android:id="@+id/textTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@string/budgets_title"
+                    android:textAppearance="@style/TextAppearance.SpendWise.Headline"
+                    app:layout_constraintEnd_toStartOf="@id/buttonSearch"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textPeriod"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_xxs"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textAppearance="@style/TextAppearance.SpendWise.Body"
+                    app:layout_constraintEnd_toStartOf="@id/buttonSearch"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textTitle"
+                    tools:text="August 2026" />
+
+                <ImageButton
+                    android:id="@+id/buttonSearch"
+                    android:layout_width="@dimen/touch_target_min"
+                    android:layout_height="@dimen/touch_target_min"
+                    android:layout_marginStart="@dimen/spacing_sm"
+                    android:background="@drawable/bg_surface_container"
+                    android:contentDescription="@string/ep_cd_search"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:padding="12dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_search"
+                    app:layout_constraintBottom_toBottomOf="@id/buttonAddBudget"
+                    app:layout_constraintEnd_toStartOf="@id/buttonAddBudget"
+                    app:layout_constraintTop_toTopOf="@id/buttonAddBudget"
+                    app:tint="@color/brand_primary" />
+
+                <ImageButton
+                    android:id="@+id/buttonAddBudget"
+                    android:layout_width="@dimen/touch_target_min"
+                    android:layout_height="@dimen/touch_target_min"
+                    android:layout_marginStart="@dimen/spacing_sm"
+                    android:background="@drawable/bg_surface_container"
+                    android:contentDescription="@string/budgets_add"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:padding="12dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_add"
+                    app:layout_constraintBottom_toBottomOf="@id/textPeriod"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/textTitle"
+                    app:tint="@color/brand_primary" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardSummary"
+                style="@style/Widget.SpendWise.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/screen_horizontal_padding"
+                android:layout_marginTop="@dimen/spacing_md"
+                android:layout_marginEnd="@dimen/screen_horizontal_padding"
+                android:visibility="gone"
+                app:contentPadding="@dimen/spacing_md"
+                tools:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="@string/section_this_month"
+                            android:textAppearance="@style/TextAppearance.SpendWise.SectionLabel" />
+
+                        <TextView
+                            android:id="@+id/textOverallPercent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_sm"
+                            android:fontFeatureSettings="tnum"
+                            android:maxLines="1"
+                            android:textAppearance="@style/TextAppearance.SpendWise.Amount"
+                            android:textColor="@color/status_on_track"
+                            tools:text="64%" />
+                    </LinearLayout>
+
+                    <com.google.android.material.progressindicator.LinearProgressIndicator
+                        android:id="@+id/progressOverall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_md"
+                        android:max="100"
+                        android:progress="64"
+                        app:indicatorColor="@color/status_on_track"
+                        app:trackColor="@color/surface_container_high"
+                        app:trackCornerRadius="@dimen/corner_radius_pill"
+                        app:trackThickness="@dimen/progress_track_height" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_md"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="@string/bt_budgets_budgeted"
+                            android:textAppearance="@style/TextAppearance.SpendWise.Caption" />
+
+                        <TextView
+                            android:id="@+id/textTotalBudgeted"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_sm"
+                            android:fontFeatureSettings="tnum"
+                            android:maxLines="1"
+                            android:textAppearance="@style/TextAppearance.SpendWise.Amount"
+                            android:textColor="@color/text_primary"
+                            tools:text="LKR 1,850.00" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/spacing_sm"
+                        android:background="@color/outline_variant" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_sm"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="@string/dashboard_expenses_this_month"
+                            android:textAppearance="@style/TextAppearance.SpendWise.Caption" />
+
+                        <TextView
+                            android:id="@+id/textTotalSpent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_sm"
+                            android:fontFeatureSettings="tnum"
+                            android:maxLines="1"
+                            android:textAppearance="@style/TextAppearance.SpendWise.Amount"
+                            android:textColor="@color/status_on_track"
+                            tools:text="LKR 1,184.20" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/textOverallRemaining"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_sm"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textAppearance="@style/TextAppearance.SpendWise.Caption"
+                        tools:text="LKR 665.80 left" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </ScrollView>
+
+    <View
+        android:id="@+id/dividerColumns"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:background="@color/outline_variant"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guidelineColumns"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerBudgets"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingStart="@dimen/screen_horizontal_padding"
+        android:paddingTop="@dimen/spacing_sm"
+        android:paddingEnd="@dimen/screen_horizontal_padding"
+        android:paddingBottom="@dimen/list_bottom_inset"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/dividerColumns"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:itemCount="5"
+        tools:listitem="@layout/item_budget" />
+
+    <LinearLayout
+        android:id="@+id/layoutEmpty"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/spacing_xl"
+        android:paddingEnd="@dimen/spacing_xl"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/dividerColumns"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible">
+
+        <ImageView
+            android:layout_width="@dimen/empty_illustration"
+            android:layout_height="@dimen/empty_illustration"
+            android:alpha="0.45"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_target"
+            app:tint="@color/text_tertiary" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_md"
+            android:gravity="center"
+            android:text="@string/budgets_empty"
+            android:textAppearance="@style/TextAppearance.SpendWise.Title" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_md"
+            android:gravity="center"
+            android:lineSpacingMultiplier="1.25"
+            android:text="@string/budgets_empty_hint"
+            android:textAppearance="@style/TextAppearance.SpendWise.Body" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonAddFirstBudget"
+            style="@style/Widget.SpendWise.Button.Tonal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_md"
+            android:minHeight="@dimen/touch_target_min"
+            android:text="@string/bt_budgets_add_first"
+            app:icon="@drawable/ic_add"
+            app:iconGravity="textStart"
+            app:iconSize="@dimen/icon_md" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

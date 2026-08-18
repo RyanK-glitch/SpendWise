@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- One section header in the global search list. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:baselineAligned="false"
+    android:gravity="center_vertical"
+    android:minHeight="@dimen/touch_target_min"
+    android:orientation="horizontal"
+    android:paddingStart="@dimen/screen_horizontal_padding"
+    android:paddingTop="@dimen/spacing_lg"
+    android:paddingEnd="@dimen/screen_horizontal_padding"
+    android:paddingBottom="@dimen/spacing_sm">
+
+    <TextView
+        android:id="@+id/textSectionTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textAppearance="@style/TextAppearance.SpendWise.SectionLabel"
+        tools:text="Transactions" />
+
+    <TextView
+        android:id="@+id/textSectionCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_sm"
+        android:background="@drawable/bg_pill_outline"
+        android:maxLines="1"
+        android:paddingStart="@dimen/spacing_sm"
+        android:paddingTop="@dimen/spacing_xxs"
+        android:paddingEnd="@dimen/spacing_sm"
+        android:paddingBottom="@dimen/spacing_xxs"
+        android:textAppearance="@style/TextAppearance.SpendWise.Caption"
+        android:textColor="@color/text_secondary"
+        tools:text="20 of 57 shown" />
+
+</LinearLayout>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="rp_profile_ledger">Your ledger</string>
+    <string name="rp_profile_privacy">Data &amp; privacy</string>
+</resources>

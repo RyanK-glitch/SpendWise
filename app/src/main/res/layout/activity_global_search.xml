@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Global search screen. Transactions, budgets and categories in one grouped list. -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_background">
+
+    <LinearLayout
+        android:id="@+id/layoutSearchBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/spacing_xs"
+        android:paddingTop="@dimen/spacing_sm"
+        android:paddingEnd="@dimen/screen_horizontal_padding"
+        android:paddingBottom="@dimen/spacing_sm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_max="@dimen/content_max_width">
+
+        <ImageButton
+            android:id="@+id/buttonBack"
+            android:layout_width="@dimen/touch_target_min"
+            android:layout_height="@dimen/touch_target_min"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/gs_cd_back"
+            android:padding="12dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_arrow_back"
+            app:tint="@color/text_primary" />
+
+        <LinearLayout
+            android:id="@+id/layoutSearchField"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="@dimen/spacing_sm"
+            android:layout_weight="1"
+            android:background="@drawable/bg_surface_container"
+            android:baselineAligned="false"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/spacing_md"
+            android:paddingEnd="@dimen/spacing_xs">
+
+            <ImageView
+                android:layout_width="@dimen/icon_field"
+                android:layout_height="@dimen/icon_field"
+                android:contentDescription="@null"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_search"
+                app:tint="@color/text_tertiary" />
+
+            <EditText
+                android:id="@+id/editSearch"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/spacing_sm"
+                android:layout_weight="1"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="@string/gs_search_hint"
+                android:imeOptions="actionSearch|flagNoExtractUi"
+                android:inputType="text"
+                android:maxLines="1"
+                android:paddingStart="0dp"
+                android:paddingEnd="0dp"
+                android:saveEnabled="false"
+                android:singleLine="true"
+                android:textAppearance="@style/TextAppearance.SpendWise.Body"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/text_tertiary"
+                tools:ignore="Autofill" />
+
+            <ImageButton
+                android:id="@+id/buttonClearSearch"
+                android:layout_width="@dimen/touch_target_min"
+                android:layout_height="@dimen/touch_target_min"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/gs_cd_clear"
+                android:padding="12dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_clear"
+                android:visibility="gone"
+                app:tint="@color/text_secondary"
+                tools:visibility="visible" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/dividerSearchHeader"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/outline_variant"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutSearchBar" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerResults"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/spacing_xxl"
+        android:scrollbars="none"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dividerSearchHeader"
+        app:layout_constraintWidth_max="@dimen/content_max_width"
+        tools:itemCount="5"
+        tools:listitem="@layout/item_search_result"
+        tools:visibility="visible" />
+
+    <LinearLayout
+        android:id="@+id/layoutPrompt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/spacing_xl"
+        android:paddingEnd="@dimen/spacing_xl"
+        android:paddingBottom="@dimen/spacing_xxl"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dividerSearchHeader"
+        app:layout_constraintWidth_max="@dimen/content_max_width">
+
+        <ImageView
+            android:layout_width="@dimen/empty_illustration"
+            android:layout_height="@dimen/empty_illustration"
+            android:alpha="0.35"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_search"
+            app:tint="@color/brand_primary" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_md"
+            android:gravity="center"
+            android:text="@string/gs_prompt_title"
+            android:textAppearance="@style/TextAppearance.SpendWise.Title" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_md"
+            android:gravity="center"
+            android:lineSpacingMultiplier="1.25"
+            android:text="@string/gs_prompt_body"
+            android:textAppearance="@style/TextAppearance.SpendWise.Body" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutEmpty"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/spacing_xl"
+        android:paddingEnd="@dimen/spacing_xl"
+        android:paddingBottom="@dimen/spacing_xxl"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dividerSearchHeader"
+        app:layout_constraintWidth_max="@dimen/content_max_width">
+
+        <ImageView
+            android:layout_width="@dimen/empty_illustration"
+            android:layout_height="@dimen/empty_illustration"
+            android:alpha="0.45"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_empty_box"
+            app:tint="@color/text_tertiary" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_md"
+            android:gravity="center"
+            android:text="@string/gs_empty_title"
+            android:textAppearance="@style/TextAppearance.SpendWise.Title" />
+
+        <TextView
+            android:id="@+id/textEmptyBody"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_md"
+            android:gravity="center"
+            android:lineSpacingMultiplier="1.25"
+            android:textAppearance="@style/TextAppearance.SpendWise.Body"
+            tools:text="Nothing matched “zzz”. Try a shorter word." />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

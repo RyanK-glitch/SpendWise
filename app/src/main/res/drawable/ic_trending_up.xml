@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="@color/status_income"
+        android:pathData="M2.59,16.39 L8.69,10.29 A1.15,1.15 0 0 1 10.31,11.91 L4.21,18.01 A1.15,1.15 0 0 1 2.59,16.39Z M10.31,10.29 L14.21,14.19 A1.15,1.15 0 0 1 12.59,15.81 L8.69,11.91 A1.15,1.15 0 0 1 10.31,10.29Z M12.55,14.22 L19.35,6.82 A1.15,1.15 0 0 1 21.05,8.38 L14.25,15.78 A1.15,1.15 0 0 1 12.55,14.22Z M20.2,8.75 L14.6,8.75 A1.15,1.15 0 0 1 14.6,6.45 L20.2,6.45 A1.15,1.15 0 0 1 20.2,8.75Z M21.35,7.6 L21.35,13.2 A1.15,1.15 0 0 1 19.05,13.2 L19.05,7.6 A1.15,1.15 0 0 1 21.35,7.6Z" />
+</vector>

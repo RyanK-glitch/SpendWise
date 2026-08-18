@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- One ledger row. -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:minHeight="72dp"
+    android:paddingStart="@dimen/screen_horizontal_padding"
+    android:paddingTop="@dimen/spacing_sm"
+    android:paddingEnd="@dimen/screen_horizontal_padding"
+    android:paddingBottom="@dimen/spacing_sm">
+
+    <ImageView
+        android:id="@+id/imageCategoryIcon"
+        android:layout_width="@dimen/category_avatar"
+        android:layout_height="@dimen/category_avatar"
+        android:background="@drawable/bg_category_circle"
+        android:contentDescription="@null"
+        android:padding="@dimen/category_avatar_inset"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@id/textMeta"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/textDescription"
+        app:tint="@color/white"
+        tools:src="@drawable/ic_wallet" />
+
+    <TextView
+        android:id="@+id/textCategoryInitial"
+        android:layout_width="@dimen/category_avatar"
+        android:layout_height="@dimen/category_avatar"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.SpendWise.Title"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/imageCategoryIcon"
+        app:layout_constraintEnd_toEndOf="@id/imageCategoryIcon"
+        app:layout_constraintStart_toStartOf="@id/imageCategoryIcon"
+        app:layout_constraintTop_toTopOf="@id/imageCategoryIcon"
+        tools:text="G" />
+
+    <TextView
+        android:id="@+id/textDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_md"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textAppearance="@style/TextAppearance.SpendWise.Title"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintBottom_toTopOf="@id/textMeta"
+        app:layout_constraintEnd_toStartOf="@id/textAmount"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/imageCategoryIcon"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="Tesco Metro superstore weekly shop" />
+
+    <TextView
+        android:id="@+id/textMeta"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_xxs"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textAppearance="@style/TextAppearance.SpendWise.Caption"
+        app:layout_constraintBottom_toTopOf="@id/textNote"
+        android:layout_marginEnd="@dimen/spacing_sm"
+        app:layout_constraintEnd_toStartOf="@id/textAmount"
+        app:layout_constraintStart_toStartOf="@id/textDescription"
+        app:layout_constraintTop_toBottomOf="@id/textDescription"
+        tools:text="Groceries · Card · 12 Aug" />
+
+    <TextView
+        android:id="@+id/textNote"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_xxs"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textAppearance="@style/TextAppearance.SpendWise.Caption"
+        android:textStyle="italic"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="@dimen/spacing_sm"
+        app:layout_constraintEnd_toStartOf="@id/textAmount"
+        app:layout_constraintStart_toStartOf="@id/textDescription"
+        app:layout_constraintTop_toBottomOf="@id/textMeta"
+        tools:text="weekly shop"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/textAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_sm"
+        android:maxLines="1"
+        android:textAppearance="@style/TextAppearance.SpendWise.Amount"
+        app:layout_constraintBaseline_toBaselineOf="@id/textDescription"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="-LKR 42.15"
+        tools:textColor="@color/status_expense" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
